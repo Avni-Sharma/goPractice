@@ -1,4 +1,16 @@
-Heyyy
 
+## Motivation
 
-Add all
+<< Why this change is relevant, what's the "story" behind it? >>
+
+## Changes
+
+<< What has been changed in order to achieve "story's" objective? >>
+
+## Testing
+
+<< How to test those changes, reference implementation of unit/e2e tests. >>
+
+## More details
+
+For further more details refer the CONTRIBUTING.md
