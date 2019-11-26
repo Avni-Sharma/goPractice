@@ -1,6 +1,6 @@
 language: ruby
 rvm:
-  - 2.0.0
+- 2.0.0
 env:
   global:
   - USER="Avni-Sharma"
@@ -8,20 +8,17 @@ env:
   - REPO="docs-test"
   - FILES="./tmp/docs/"
   - GH_REPO="github.com/${USER}/${REPO}.git"
-  # - secure: "put travis gem output here => http://docs.travis-ci.com/user/encryption-keys/"
+  - secure: rhTJLVlznEiMCZ1bYMMWgMb9iBhhMUT0p4IZYK5v+f553Tv7c77zfL4FOD/OsIkhTVub3bIZ65RmEXaMxeLjJsbgkgtSfWDXX4y2VtG79szdqjji3BOtiLxf7ebxFFW1bZkNxaYEooj29iiSF0d2COWIOrhR58FVyUOHsMwmytzrL/CuBJ8ROSECFzZS5kC0RDYURlUTkwkSQavtbr7tvuTd7FkiuFrRNqo6aRkha8hd/FfwFzWMWpCZBZPiEZ9EdHjYBS2HV9CnHFv5lopj5It8LM2tjxlwF14GykHDjXUgUSrBIVcZ3yz1ymQRkx92iHuui5fE6UUYxr6nER3Ts4ljcQb6yMZskAyqXQyvbNxcgE5OS2eHTkOtfiOzM+wttPPEU7IBRHlnlR4uUZ78JXLgHFW8+dfLb/recOKKK1JOJpy5pgrBoWDKDSUg6KdSSZNpZvobtoT9rSLMyeH0X4LG/IhooA7eUY21ljzuvtM7XtBY1/yUzPInJc8+t3gzyuE4I2DWiQYuxTcPsi+VdqDY2fiXIZt4GBGjGg68CFLHhgOfFuwlXu64ga1NTyCtYXCJDOltHRFLJVeSC3m5S0xbQTHGewap0Tz11M41o8VrQt8SWYuvaOc/wogXg7nEJi6ow9pmEAqixsEOfijsc1FJeyfsTkBl50QPehAr2gk=
 
-# deploy:
-#   github_token: $GITHUB_TOKEN
-script:
-  echo GITHUB_TOKEN=my_github_token | travis encrypt --add 
+
 after_success:
-  - MESSAGE=$(git log --format=%B -n 1 $TRAVIS_COMMIT)
-  - git clone git://${GH_REPO}
-  - mv -f ${FILES} ${REPO}
-  - cd ${REPO}
-  - git
-  - git config user.email ${EMAIL}
-  - git config user.name ${USER}
-  - git add ${FILES}
-  - git commit -m ${MESSAGE}
-  - git push "https://${GITHUB_TOKEN}@${GH_REPO}" master > /dev/null 2>&1
+- MESSAGE=$(git log --format=%B -n 1 $TRAVIS_COMMIT)
+- git clone git://${GH_REPO}
+- mv -f ${FILES} ${REPO}
+- cd ${REPO}
+- git
+- git config user.email ${EMAIL}
+- git config user.name ${USER}
+- git add ${FILES}
+- git commit -m ${MESSAGE}
+- git push "https://${GITHUB_TOKEN}@${GH_REPO}" master > /dev/null 2>&1
