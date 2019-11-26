@@ -6,7 +6,7 @@ env:
   - USER="Avni-Sharma"
   - EMAIL="16avnisharma@mail.com"
   - REPO="docs-test"
-  - FILES="./tmp/manifests/"
+  - FILES="./tmp/docs/"
   - GH_REPO="github.com/${USER}/${REPO}.git"
   # - secure: "put travis gem output here => http://docs.travis-ci.com/user/encryption-keys/"
 
@@ -19,7 +19,7 @@ after_success:
   - git clone git://${GH_REPO}
   - mv -f ${FILES} ${REPO}
   - cd ${REPO}
-  - git remote
+  - git
   - git config user.email ${EMAIL}
   - git config user.name ${USER}
   - git add ${FILES}
